@@ -1,0 +1,15 @@
+<h1>Stocks</h1>
+<ul>
+    <% @stocks.each do |stock| %>
+        <li>
+            <b><%= stock.symbol %></b> - <%= stock.quote_data[:price] %>
+            <br>
+            <%= stock.company_name %> - <%= link_to "Move to Top", move_to_top_stock_path(stock) %> - <%= link_to "Delete", stock_path(stock), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure you want to delete " + stock.symbol + "?"
+                  } %>
+        </li>
+    <% end %>
+</ul>
+
+<%= link_to "Add Stock", new_stock_path %>

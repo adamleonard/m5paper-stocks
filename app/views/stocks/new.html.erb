@@ -1,0 +1,15 @@
+<h1>Add Stock</h1>
+
+<%= form_with model: @stock do |form| %>
+    <div>
+        <%= form.label :symbol %><br>
+        <%= form.text_field :symbol %>
+        <% @stock.errors.full_messages_for(:symbol).each do |message| %>
+            <div><%= message %></div>
+          <% end %>
+    </div>
+    
+    <div>
+        <%= form.submit %>
+    </div>
+<% end %>
