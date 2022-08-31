@@ -10,7 +10,7 @@ class StocksController < ApplicationController
       end
     }.each(&:join)
 
-    lookup_time = Time.new
+    lookup_time = Time.current
     
     respond_to do |format|
       last_updated_string = "Last updated at #{lookup_time.strftime("%I:%M %p (%b %d)")}"
